@@ -1,0 +1,88 @@
+.homepage {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.image {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    color: black;
+}
+
+@keyframes image {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .image {
+        animation: image infinite 7s linear;
+    }
+}
+
+.date {
+    color: grey;
+    margin-top: -1.2rem;
+    font-size: 14px;
+}
+
+.movies {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(300px, auto);
+    color: rgb(201, 198, 198);
+    margin-top: 10px;
+    margin-right: 2.5rem;
+    font-family: 'My Custom Font', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    text-align: start;
+}
+
+.movie_group {
+    padding: 16px;
+    background-image: linear-gradient(rgba(0, 0, 0.50, 0.80), rgba(0, 0, 0, 0.90)),
+        url("https://assets.traveltriangle.com/blog/wp-content/uploads/2018/11/History-Of-Bethlehem-Birthplace-Of-Jesus-Christ.jpg");
+    filter: brightness(1.4);
+    /* Add a greyish filter */
+}
+
+.movie_group:hover {
+    box-shadow: 0 0 10px 5px rgba(69, 69, 236, 0.857);
+    /* Add a blue-black border shadow on hover */
+}
+
+a {
+    color: yellow;
+    text-decoration: none;
+}
+
+.hr {
+    color: red;
+}
+
+@media only screen and (max-width: 1000px) {
+    .movies {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: minmax(300px, auto);
+        gap: .4rem;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .movies {
+        grid-template-columns: repeat(1, 1fr);
+        grid-auto-rows: minmax(300px, auto);
+        gap: 0rem;
+        font-size: 14px;
+    }
+}
