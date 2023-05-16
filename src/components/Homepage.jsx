@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import img1 from "./Assets/starwar logo.png";
 import styles from "./style.module.css";
 import img2 from "./Assets/yellow_logo.png";
+import { Link } from "react-router-dom";
+import Readmore from "./Readmore";
 
 function Homepage() {
   const [loading, setLoading] = useState(true);
@@ -53,7 +55,7 @@ function Homepage() {
       {error && <div> {error} </div>}
       {data && (
         <div className={styles.movies}>
-          {data.map((movie) => {
+          {data.map((movie, index) => {
             return (
               <ul key={movie.episode_id}>
                 <li>
@@ -63,7 +65,7 @@ function Homepage() {
                     <div>
                       <p>{movie.opening_crawl.substring(0, 260)}...</p>
                       <ColoredLine color="brown" />
-                      <a href="http://">More Info</a>
+                      <Link to={`/movie/${index+1}`} element={<Readmore/>} className="moreInfo">More Info</Link>
                     </div>
                   </div>
                 </li>
